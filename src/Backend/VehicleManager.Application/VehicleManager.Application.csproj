@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\VehicleManager.Communication\VehicleManager.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\VehicleManager.Exceptions\VehicleManager.Exceptions.csproj" />
+    <ProjectReference Include="..\VehicleManager.Domain\VehicleManager.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UseCases\" />
+  </ItemGroup>
+
+</Project>

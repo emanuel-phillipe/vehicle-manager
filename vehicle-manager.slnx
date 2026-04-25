@@ -1,1 +1,14 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Backend/">
+    <Project Path="src/Backend/VehicleManager.API/VehicleManager.API.csproj" Id="165d3218-f509-4db8-9e06-32ea9fc0c24b" />
+    <Project Path="src/Backend/VehicleManager.Application/VehicleManager.Application.csproj" Id="9a6d00e9-0690-400b-b37c-f20b79ce2b09" />
+    <Project Path="src/Backend/VehicleManager.Domain/VehicleManager.Domain.csproj" Id="e1767fa8-e7f8-4654-aceb-4c952eff7b37" />
+    <Project Path="src/Backend/VehicleManager.Infrastructure/VehicleManager.Infrastructure.csproj" Id="f56f7a3e-8bfa-4b2d-8678-e9b00c15da43" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/VehicleManager.Communication/VehicleManager.Communication.csproj" Id="3055de93-54df-4039-9a7c-f705feb3d74b" />
+    <Project Path="src/Shared/VehicleManager.Exceptions/VehicleManager.Exceptions.csproj" Id="452b56b8-7fa9-4664-b558-65b944d81f80" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
