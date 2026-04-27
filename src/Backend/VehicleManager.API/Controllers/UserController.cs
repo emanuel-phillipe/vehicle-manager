@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using VehicleManager.Communication.Requests;
+using VehicleManager.Communication.Responses;
 
 namespace VehicleManager.API.Controllers
 {
@@ -6,10 +8,11 @@ namespace VehicleManager.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status200OK)]
+        public IActionResult Register(RequestRegisterUserJson request)
         {
-            return Ok();
+            return Ok(new ResponseRegisterUserJson() {Email = request.Email, RegisterNum = 544987});
         }
     }
 }
