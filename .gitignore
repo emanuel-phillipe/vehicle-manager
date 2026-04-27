@@ -193,3 +193,6 @@ FakesAssemblies/
 
 /.sonarqube
 coverage.opencover.xml
+
+# Linux Script to initialize project via Terminal
+start-project.sh
