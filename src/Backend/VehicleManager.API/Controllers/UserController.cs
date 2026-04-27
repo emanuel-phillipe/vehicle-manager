@@ -9,10 +9,10 @@ namespace VehicleManager.API.Controllers
     public class UserController : ControllerBase
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
         public IActionResult Register(RequestRegisterUserJson request)
         {
-            return Ok(new ResponseRegisterUserJson() {Email = request.Email, RegisterNum = 544987});
+            return Created();
         }
     }
 }
