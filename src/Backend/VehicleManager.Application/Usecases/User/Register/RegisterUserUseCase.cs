@@ -7,6 +7,9 @@ public class RegisterUserUseCase
 {
     public ResponseRegisterUserJson Execute(RequestRegisterUserJson request)
     {
+        
+        Validate(request);
+        
         return new ResponseRegisterUserJson()
         {
             FullName = request.FullName,

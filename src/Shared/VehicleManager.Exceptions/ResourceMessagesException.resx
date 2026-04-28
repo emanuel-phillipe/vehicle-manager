@@ -18,7 +18,31 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="NAME_EMPTY" xml:space="preserve">
+    <data name="NAME_ERROR" xml:space="preserve">
         <value>Full name is required</value>
+    </data>
+    <data name="CPF_ERROR" xml:space="preserve">
+        <value>CPF should have 11 digits</value>
+    </data>
+    <data name="EMAIL_ERROR" xml:space="preserve">
+        <value>Email is required</value>
+    </data>
+    <data name="PASSWORD_ERROR" xml:space="preserve">
+        <value>Password should be greater than or equal to 8 digits</value>
+    </data>
+    <data name="PHONE_ERROR" xml:space="preserve">
+        <value>Phone number should be equal to 14 digits</value>
+    </data>
+    <data name="ROLE_ERROR" xml:space="preserve">
+        <value>Role is required</value>
+    </data>
+    <data name="CNH_CATEGORIES_ERROR" xml:space="preserve">
+        <value>CNH categories are required</value>
+    </data>
+    <data name="CNH_DUE_DATE_ERROR" xml:space="preserve">
+        <value>CNH due date is required</value>
+    </data>
+    <data name="CNH_NUM_ERROR" xml:space="preserve">
+        <value>CNH number should be 9 digits</value>
     </data>
 </root>

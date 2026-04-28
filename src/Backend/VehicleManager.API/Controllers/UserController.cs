@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using VehicleManager.Application.Usecases.User.Register;
 using VehicleManager.Communication.Requests;
 using VehicleManager.Communication.Responses;
 
@@ -12,7 +13,10 @@ namespace VehicleManager.API.Controllers
         [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
         public IActionResult Register(RequestRegisterUserJson request)
         {
-            return Created();
+            var useCase = new RegisterUserUseCase();
+            var result = useCase.Execute(request);
+            
+            return Created(string.Empty, result);
         }
     }
 }
