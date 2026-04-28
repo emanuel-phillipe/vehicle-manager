@@ -10,6 +10,20 @@ public class RegisterUserUseCase
         
         Validate(request);
         
+        // Após colocar o AutoMapper - GIT REFACTOR
+
+        var user = new Domain.Entities.User
+        {
+            FullName = request.FullName,
+            Email = request.Email,
+            Password = request.Password,
+            Cpf = request.Cpf,
+            Role = request.Role,
+            CnhNum = request.CnhNum,
+            CnhDueDate = request.CnhDueDate,
+            CnhCategories = request.CnhCategories,
+        };
+        
         return new ResponseRegisterUserJson()
         {
             FullName = request.FullName,
