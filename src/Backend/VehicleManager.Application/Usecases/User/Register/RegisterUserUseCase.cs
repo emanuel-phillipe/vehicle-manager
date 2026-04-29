@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging.Abstractions;
+using VehicleManager.Application.Services.AutoMapper;
 using VehicleManager.Communication.Requests;
 using VehicleManager.Communication.Responses;
 
@@ -9,20 +11,13 @@ public class RegisterUserUseCase
     {
         // Validar body da request
         Validate(request);
-        
-        // Após colocar o AutoMapper - GIT REFACTOR
 
-        var user = new Domain.Entities.User
+        var autoMapper = new AutoMapper.MapperConfiguration(options=>
         {
-            FullName = request.FullName,
-            Email = request.Email,
-            Password = request.Password,
-            Cpf = request.Cpf,
-            Role = request.Role,
-            CnhNum = request.CnhNum,
-            CnhDueDate = request.CnhDueDate,
-            CnhCategories = request.CnhCategories,
-        };
+            options.AddProfile(new AutoMapping());
+        }, NullLoggerFactory.Instance).CreateMapper();
+
+        var user = autoMapper.Map<Domain.Entities.User>(request);
         
         return new ResponseRegisterUserJson()
         {
