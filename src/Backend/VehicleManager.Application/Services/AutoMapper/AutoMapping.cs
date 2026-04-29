@@ -13,6 +13,7 @@ public class AutoMapping:Profile
     private void RequestToDomain()
     {
         CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
-            .ForMember(user => user.Password, opt => opt.Ignore());
+            .ForMember(user => user.Password, opt => opt.Ignore())
+            .ForMember(user => user.RegisterNum, opt => opt.Ignore());
     }
 }
