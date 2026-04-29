@@ -7,7 +7,7 @@ public class RegisterUserUseCase
 {
     public ResponseRegisterUserJson Execute(RequestRegisterUserJson request)
     {
-        
+        // Validar body da request
         Validate(request);
         
         // Após colocar o AutoMapper - GIT REFACTOR
