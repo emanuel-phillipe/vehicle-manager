@@ -12,7 +12,7 @@ public class RegisterUserValidator : AbstractValidator<RequestRegisterUserJson>
         RuleFor(user => user.Cpf.Length).NotNull().NotEmpty().Equal(11).WithMessage(ResourceMessagesException.CPF_ERROR);
         RuleFor(user => user.Email).NotNull().NotEmpty().EmailAddress().WithMessage(ResourceMessagesException.EMAIL_ERROR);
         RuleFor(user => user.Password.Length).NotNull().NotEmpty().GreaterThanOrEqualTo(8).WithMessage(ResourceMessagesException.PASSWORD_ERROR);
-        RuleFor(user => user.Phone.Length).NotNull().NotEmpty().Equal(14).WithMessage(ResourceMessagesException.PHONE_ERROR);
+        RuleFor(user => user.Phone.Length).NotNull().NotEmpty().Equal(13).WithMessage(ResourceMessagesException.PHONE_ERROR);
         RuleFor(user => user.Role).NotNull().NotEmpty().WithMessage(ResourceMessagesException.ROLE_ERROR);
         RuleFor(user => user.CnhCategories).NotNull().NotEmpty().WithMessage(ResourceMessagesException.CNH_CATEGORIES_ERROR);
         RuleFor(user => user.CnhDueDate).NotNull().NotEmpty().WithMessage(ResourceMessagesException.CNH_DUE_DATE_ERROR);
