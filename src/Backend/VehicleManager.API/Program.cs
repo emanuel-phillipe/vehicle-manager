@@ -1,3 +1,6 @@
+using VehicleManager.Application;
+using VehicleManager.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Lowercased Urls
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+// Parte da Injeção de Dependência
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 

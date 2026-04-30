@@ -2,7 +2,7 @@
 
 public class User
 {
-    public string Id { get; set; }
+    public Guid Id { get; set; }
     public string FilialId  { get; set; } = string.Empty;
     public bool Active { get; set; } = true;
     public string FullName { get; set; } = string.Empty;
