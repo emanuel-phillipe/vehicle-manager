@@ -3,12 +3,18 @@ using VehicleManager.Application.Services.AutoMapper;
 using VehicleManager.Application.Services.Cryptography;
 using VehicleManager.Communication.Requests;
 using VehicleManager.Communication.Responses;
+using VehicleManager.Domain.Repositories.User;
 
 namespace VehicleManager.Application.Usecases.User.Register;
 
 public class RegisterUserUseCase
 {
-    public ResponseRegisterUserJson Execute(RequestRegisterUserJson request)
+    
+    // Repositórios 
+    private readonly IUserReadOnlyRepository  _readOnlyRepository;
+    private readonly IUserWriteOnlyRepository _writeOnlyRepository;
+    
+    public async Task<ResponseRegisterUserJson> Execute(RequestRegisterUserJson request)
     {
         // OBS - INJEÇÃO DE DEPENDÊNCIAS NÃO INICIADA
         //Inicialização de classes (Encriptação e AutoMapper)
@@ -26,6 +32,8 @@ public class RegisterUserUseCase
 
         //Criptografia da senha do usuário
         user.Password = passwordCrypto.Encrypt(request.Password);
+        
+        await _writeOnlyRepository.Add(user);
         
         return new ResponseRegisterUserJson()
         {
