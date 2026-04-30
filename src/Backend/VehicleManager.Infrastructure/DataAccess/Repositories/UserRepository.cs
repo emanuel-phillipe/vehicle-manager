@@ -10,5 +10,10 @@ public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository
     public UserRepository(VehicleManagerDbContext dbContext) { _dbContext = dbContext; }
 
     public async Task Add(User user) => await _dbContext.Users.AddAsync(user);
-    public async Task<bool> GetByEmail(string email) => await _dbContext.Users.AnyAsync(user => user.Email == email);   
+    public async Task<bool> ExistByEmail(string email) => await _dbContext.Users.AnyAsync(user => user.Email == email);
+
+    public async Task<bool> GetByRegisterNum(int registerNum)
+    {
+        return await _dbContext.Users.AnyAsync(user => user.RegisterNum.Substring(2) == registerNum.ToString());
+    }
 }

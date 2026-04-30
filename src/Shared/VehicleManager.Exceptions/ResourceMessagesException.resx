@@ -45,4 +45,10 @@
     <data name="CNH_NUM_ERROR" xml:space="preserve">
         <value>CNH number should be 9 digits</value>
     </data>
+    <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+        <value>Email already registered</value>
+    </data>
+    <data name="UNKNOW_ERROR" xml:space="preserve">
+        <value>Unrecognized error</value>
+    </data>
 </root>

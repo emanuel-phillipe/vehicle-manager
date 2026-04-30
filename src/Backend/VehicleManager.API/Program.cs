@@ -1,3 +1,4 @@
+using VehicleManager.API.Filters;
 using VehicleManager.Application;
 using VehicleManager.Infrastructure;
 
@@ -12,9 +13,11 @@ builder.Services.AddSwaggerGen();
 // Lowercased Urls
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+
 // Parte da Injeção de Dependência
-builder.Services.AddApplication();
-builder.Services.AddInfrastructure();
+builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

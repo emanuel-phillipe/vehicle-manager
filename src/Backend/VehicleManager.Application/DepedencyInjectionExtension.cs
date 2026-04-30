@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
 using VehicleManager.Application.Services.AutoMapper;
 using VehicleManager.Application.Services.Cryptography;
@@ -8,11 +9,11 @@ namespace VehicleManager.Application;
 
 public static class DepedencyInjectionExtension
 {
-    public static void AddApplication(this IServiceCollection services)
+    public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
         AddMapper(services);
         AddUseCases(services);
-        AddEncrypter(services);
+        AddEncrypter(services, configuration);
     }
 
     private static void AddMapper(IServiceCollection services)
@@ -28,8 +29,11 @@ public static class DepedencyInjectionExtension
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
     }
 
-    private static void AddEncrypter(IServiceCollection services)
+    private static void AddEncrypter(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped(option => new PasswordEncrypter());
+        
+        var addKey = configuration.GetSection("Settings:Password:AddKey").Value;
+        
+        services.AddScoped(option => new PasswordEncrypter(addKey!));
     }
 }

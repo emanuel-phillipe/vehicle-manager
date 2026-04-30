@@ -11,9 +11,9 @@ namespace VehicleManager.API.Controllers
     {
         [HttpPost]
         [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
-        public IActionResult Register([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestRegisterUserJson request)
+        public async Task<IActionResult> Register([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestRegisterUserJson request)
         {
-            var result = useCase.Execute(request);
+            var result = await useCase.Execute(request);
             
             return Created(string.Empty, result);
         }

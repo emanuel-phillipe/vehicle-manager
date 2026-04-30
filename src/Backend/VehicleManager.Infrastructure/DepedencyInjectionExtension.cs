@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using VehicleManager.Domain.Repositories;
 using VehicleManager.Domain.Repositories.User;
 using VehicleManager.Infrastructure.DataAccess;
 using VehicleManager.Infrastructure.DataAccess.Repositories;
@@ -8,16 +10,16 @@ namespace VehicleManager.Infrastructure;
 
 public static class DepedencyInjectionExtension
 {
-    public static void AddInfrastructure(this IServiceCollection services)
+    public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        AddDbContext_SqlServer(services);
+        AddDbContext_SqlServer(services, configuration);
         AddRepositories(services);
     }
 
-    private static void AddDbContext_SqlServer(IServiceCollection services)
+    private static void AddDbContext_SqlServer(IServiceCollection services, IConfiguration configuration)
     {
-
-        var connectionString = "Data Source=JOHNSONSERVER;Initial Catalog=vehicle-manager;User ID=sa;Password=505617;Trusted_Connection=True;TrustServerCertificate=True;";
+        
+        var connectionString = configuration.GetConnectionString("Connection");
 
         services.AddDbContext<VehicleManagerDbContext>(dbOptions =>
         {
@@ -27,6 +29,7 @@ public static class DepedencyInjectionExtension
 
     private static void AddRepositories(IServiceCollection services)
     {
+        services.AddScoped<IUnityOfWork, UnityOfWork>();
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
     }
