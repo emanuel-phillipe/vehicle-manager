@@ -1,6 +1,8 @@
 using VehicleManager.API.Filters;
 using VehicleManager.Application;
 using VehicleManager.Infrastructure;
+using VehicleManager.Infrastructure.Extensions;
+using VehicleManager.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,4 +36,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+MigrateDatabase();
+
 app.Run();
+
+void MigrateDatabase()
+{
+    var connectionString = builder.Configuration.ConnectionString();
+    DatabaseMigration.Migrate(connectionString);
+}

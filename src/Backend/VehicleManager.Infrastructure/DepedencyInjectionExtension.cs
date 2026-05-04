@@ -5,6 +5,7 @@ using VehicleManager.Domain.Repositories;
 using VehicleManager.Domain.Repositories.User;
 using VehicleManager.Infrastructure.DataAccess;
 using VehicleManager.Infrastructure.DataAccess.Repositories;
+using VehicleManager.Infrastructure.Extensions;
 
 namespace VehicleManager.Infrastructure;
 
@@ -18,8 +19,8 @@ public static class DepedencyInjectionExtension
 
     private static void AddDbContext_SqlServer(IServiceCollection services, IConfiguration configuration)
     {
-        
-        var connectionString = configuration.GetConnectionString("Connection");
+
+        var connectionString = configuration.ConnectionString();
 
         services.AddDbContext<VehicleManagerDbContext>(dbOptions =>
         {
@@ -32,5 +33,10 @@ public static class DepedencyInjectionExtension
         services.AddScoped<IUnityOfWork, UnityOfWork>();
         services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+    }
+
+    private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
+    {
+        
     }
 }
