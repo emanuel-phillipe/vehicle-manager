@@ -96,6 +96,15 @@ namespace VehicleManager.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email already registered.
+        /// </summary>
+        public static string EMAIL_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email is required.
         /// </summary>
         public static string EMAIL_ERROR {
@@ -137,6 +146,15 @@ namespace VehicleManager.Exceptions {
         public static string ROLE_ERROR {
             get {
                 return ResourceManager.GetString("ROLE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unrecognized error.
+        /// </summary>
+        public static string UNKNOW_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
             }
         }
     }

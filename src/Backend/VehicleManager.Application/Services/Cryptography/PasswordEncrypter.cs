@@ -5,10 +5,13 @@ namespace VehicleManager.Application.Services.Cryptography;
 
 public class PasswordEncrypter
 {
+    
+    private readonly string _addKey;
+    public PasswordEncrypter(string addKey) =>  _addKey = addKey;
+    
     public string Encrypt(string password)
     {
-        var addKey = "ABC";
-        var newPassword = $"{password}{addKey}";
+        var newPassword = $"{password}{_addKey}";
         
         var bytes = Encoding.UTF8.GetBytes(newPassword);
         var hashBytes = SHA512.HashData(bytes);

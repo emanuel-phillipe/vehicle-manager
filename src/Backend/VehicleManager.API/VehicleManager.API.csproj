@@ -19,6 +19,7 @@
     <ProjectReference Include="..\..\Shared\VehicleManager.Communication\VehicleManager.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\VehicleManager.Exceptions\VehicleManager.Exceptions.csproj" />
     <ProjectReference Include="..\VehicleManager.Application\VehicleManager.Application.csproj" />
+    <ProjectReference Include="..\VehicleManager.Infrastructure\VehicleManager.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
